@@ -1,3 +1,3 @@
 module.exports = {
-	Recipe : require('../models/books')
+	Book : require('./books')
 };
