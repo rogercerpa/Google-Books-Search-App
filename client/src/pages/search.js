@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function FullWidthGrid() {
+export default function Books() {
 	const classes = useStyles();
 	const [ books, setBooks ] = useState([]);
 
@@ -37,6 +37,7 @@ export default function FullWidthGrid() {
 			.then((res) => setBooks(res.data))
 			.catch((err) => console.log(err));
 	}
+	console.log(books);
 
 	function deleteBook(id) {
 		API.deleteBook(id)
@@ -52,18 +53,20 @@ export default function FullWidthGrid() {
 					<Paper className={classes.paper}>
 						{books.length ? (
 							<div>
-								{books.map((book) => (
-									<Card>
-										<CardBody key={book._id}>
-											<CardTitle>{book.title}</CardTitle>
-											<CardSubtitle>{book.author}</CardSubtitle>
-											<CardText>{book.synopsis}</CardText>
-											<Button onClick={() => deleteBook(book._id)}>
-												Add to favorite
-											</Button>
-										</CardBody>
-									</Card>
-								))}
+								{books.map((book) => {
+									return (
+										<Card>
+											<CardBody key={book._id}>
+												<CardTitle>{book.title}</CardTitle>
+												<CardSubtitle>{book.author}</CardSubtitle>
+												<CardText>{book.synopsis}</CardText>
+												<Button onClick={() => deleteBook(book._id)}>
+													Add to favorite
+												</Button>
+											</CardBody>
+										</Card>
+									);
+								})}
 							</div>
 						) : (
 							<h3>No Results to Display</h3>
