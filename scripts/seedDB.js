@@ -4,7 +4,8 @@ const db = require('../models');
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
-	process.env.MONGODB_URI || 'mongodb://localhost/reactreadinglist'
+	process.env.MONGODB_URI ||
+		'mongodb://booksList:rc032090@ds151293.mlab.com:51293/heroku_t1nbxs70'
 );
 
 const bookSeed = [
