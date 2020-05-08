@@ -13,7 +13,8 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes);
 
 mongoose.connect(
-	process.env.MONGODB_URI || 'mongodb://localhost/reactreadinglist'
+	process.env.MONGODB_URI ||
+		'mongodb://booksList:rc032090@ds151293.mlab.com:51293/heroku_t1nbxs70'
 );
 
 // Send every request to the React app
