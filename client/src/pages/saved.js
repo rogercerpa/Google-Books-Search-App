@@ -57,7 +57,7 @@ export default function FullWidthGrid() {
 											<CardSubtitle>{book.author}</CardSubtitle>
 											<CardText>{book.synopsis}</CardText>
 											<Button onClick={() => deleteBook(book._id)}>
-												Add to favorite
+												delete from favorites
 											</Button>
 										</CardBody>
 									</Card>

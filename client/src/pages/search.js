@@ -39,9 +39,12 @@ export default function Books() {
 	}
 	console.log(books);
 
-	function deleteBook(id) {
-		API.deleteBook(id)
-			.then((res) => loadBooks())
+	function favoriteBook(id) {
+		const favBook = books[id];
+		API.saveBook(favBook)
+			.then((res) => {
+				console.log(res);
+			})
 			.catch((err) => console.log(err));
 	}
 
@@ -60,8 +63,8 @@ export default function Books() {
 												<CardTitle>{book.title}</CardTitle>
 												<CardSubtitle>{book.author}</CardSubtitle>
 												<CardText>{book.synopsis}</CardText>
-												<Button onClick={() => deleteBook(book._id)}>
-													Add to favorite
+												<Button onClick={() => favoriteBook(book._id)}>
+													Add to favorites
 												</Button>
 											</CardBody>
 										</Card>
