@@ -14,7 +14,8 @@ app.use(routes);
 
 mongoose.connect(
 	process.env.MONGODB_URI ||
-		'mongodb://booksList:rc032090@ds151293.mlab.com:51293/heroku_t1nbxs70'
+		'mongodb://booksList:rc032090@ds151293.mlab.com:51293/heroku_t1nbxs70',
+	{ useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
 );
 
 // Send every request to the React app
